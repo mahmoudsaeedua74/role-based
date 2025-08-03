@@ -33,7 +33,7 @@ const NavigationItems = ({ handleNavLinkClick, handleLogout }) => {
         <button
           type="button"
           onClick={() => handleLogout()}
-          className="w-full flex items-center self-end justify-center gap-2 py-3 px-4 rounded-md font-medium transition-all duration-200 border border-[#F77737] bg-[#F77737] text-white hover:bg-white hover:text-black"
+          className="w-full flex items-center self-end justify-center gap-2 py-3 px-4 rounded-md font-medium transition-all duration-200 border border-primary bg-primary text-white hover:bg-white hover:text-black"
         >
           <span className="text-sm font-semibold">Logout</span>
         </button>
