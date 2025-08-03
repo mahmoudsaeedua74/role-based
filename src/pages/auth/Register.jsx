@@ -1,6 +1,15 @@
 import { useForm } from "react-hook-form";
 import { loginSchema } from "../../validation";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { setUser } from "../../store/sliceAuth/authSlice";
+import { login } from "../../api/authApi";
+import FormInlineError from "../../components/form/FormError";
+import Input from "../../components/form/Input";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 // login form data
 const loginFormData = [
   {
@@ -17,6 +26,9 @@ const loginFormData = [
   },
 ];
 export default function Register() {
+  const dispatch = useDispatch();
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     formState: { errors, isValid },
@@ -27,14 +39,37 @@ export default function Register() {
   });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setIsLoading(true);
+    toast.loading("Logging in...");
+    try {
+      const response = await login(data.email, data.password);
+      const user = response.data;
+      toast.dismiss();
+      toast.success("Login successful!");
+      // Save user data to Redux store and also persist it in localStorage
+      // so that the user stays logged in even after a page refresh
+      dispatch(setUser(user));
+      localStorage.setItem("user", JSON.stringify(user));
+    } catch (error) {
+      toast.dismiss();
+      toast.error(
+        error?.response?.data?.message || "Login failed. Check email/password."
+      );
+      setError(
+        error?.response?.data?.message || "Login failed. Check email/password."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
+
   return (
     <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
-        <h1 className="text-2xl font-bold text-center text-primary mb-6">
+        <h1 className="text-2xl font-bold text-center text-[#F77737] mb-6">
           Login to your account
         </h1>
+        {error && <FormInlineError error={error} />}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-4"
@@ -65,16 +100,23 @@ export default function Register() {
           </Link>
           <button
             type="submit"
-            disabled={!isValid}
-            className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-medium transition duration-200 border border-primary
+            disabled={isLoading || !isValid}
+            className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-medium transition duration-200 border 
             ${
-              !isValid
+              isLoading || !isValid
                 ? "opacity-50 cursor-not-allowed bg-gray-300 text-gray-500 border-gray-300"
-                : "bg-primary text-white hover:bg-white hover:text-black"
+                : "bg-[#F77737] text-white hover:bg-white hover:text-black"
             }
             `}
           >
-            Login
+            {isLoading ? (
+              <>
+                <AiOutlineLoading3Quarters className="animate-spin" />
+                <span>Logging in...</span>
+              </>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
       </div>
