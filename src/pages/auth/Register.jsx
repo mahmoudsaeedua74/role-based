@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { loginSchema } from "../../validation";
+import { yupResolver } from "@hookform/resolvers/yup";
 // login form data
 const loginFormData = [
   {
@@ -21,6 +23,7 @@ export default function Register() {
     handleSubmit,
   } = useForm({
     mode: "onTouched",
+    resolver: yupResolver(loginSchema),
   });
 
   const onSubmit = async (data) => {
