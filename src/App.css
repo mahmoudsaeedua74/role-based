@@ -5,3 +5,17 @@
 body {
   font-family: "Inter", sans-serif;
 }
+/* for active sidebar */
+.active {
+  color: #e5e7eb;
+  background-color: #f77737;
+  border-radius: 8px;
+  width: 100%;
+  transition: all;
+  border-radius: 8px;
+  transition-duration: 200ms;
+  transition: ease-in-out;
+}
+.sidebar {
+  @apply hover:rounded-lg hover:bg-primary hover:scale-105 hover:text-white duration-200 transition-all;
+}
