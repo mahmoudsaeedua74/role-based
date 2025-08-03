@@ -8,6 +8,7 @@ import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
 import Layouts from "./components/layout/Layouts";
+import ProtectedRoute from "./guards/ProtectedRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +19,11 @@ function App() {
     },
     {
       path: "",
-      element: <Layouts />,
+      element: (
+        <ProtectedRoute>
+          <Layouts />
+        </ProtectedRoute>
+      ),
       children: [
         // Dashboard sub-routes for authenticated users
         {
