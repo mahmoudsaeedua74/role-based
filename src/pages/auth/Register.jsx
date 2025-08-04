@@ -11,6 +11,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { loginFormData, permissionToPath } from "../../data";
+import { Button } from "../../components/ui/button";
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -91,26 +92,14 @@ export default function Register() {
           >
             Forgot your password?
           </Link>
-          <button
+          <Button
             type="submit"
-            disabled={isLoading || !isValid}
-            className={`w-full flex items-center justify-center gap-2 py-2 rounded-md font-medium transition duration-200 border 
-            ${
-              isLoading || !isValid
-                ? "opacity-50 cursor-not-allowed bg-gray-300 text-gray-500 border-gray-300"
-                : "bg-primary text-white hover:bg-white hover:text-black"
-            }
-            `}
+            disabled={!isValid}
+            loading={isLoading}
+            size="full"
           >
-            {isLoading ? (
-              <>
-                <AiOutlineLoading3Quarters className="animate-spin" />
-                <span>Logging in...</span>
-              </>
-            ) : (
-              "Login"
-            )}
-          </button>
+            {isLoading ? "Logging in..." : "Login"}
+          </Button>
         </form>
       </div>
     </section>

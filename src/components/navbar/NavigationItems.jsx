@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { sidebarItems } from "../../data";
 import { defaultMenuItemVariants } from "../../data/motionVariants";
+import { Button } from "../ui/button";
 
 const NavigationItems = ({ handleNavLinkClick, handleLogout }) => {
   const permissions =
@@ -30,13 +31,14 @@ const NavigationItems = ({ handleNavLinkClick, handleLogout }) => {
         ))}
       </div>
       <motion.div variants={defaultMenuItemVariants} className="w-full mt-20 ">
-        <button
+        <Button
           type="button"
-          onClick={() => handleLogout()}
-          className="w-full flex items-center self-end justify-center gap-2 py-3 px-4 rounded-md font-medium transition-all duration-200 border border-primary bg-primary text-white hover:bg-white hover:text-black"
+          variants="primary"
+          onClick={handleLogout}
+          className="w-full self-end"
         >
           <span className="text-sm font-semibold">Logout</span>
-        </button>
+        </Button>
       </motion.div>
     </>
   );

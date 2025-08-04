@@ -14,6 +14,7 @@ import {
   sidebarVariants,
 } from "../../data/motionVariants";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../ui/button";
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,6 +58,7 @@ export default function Sidebar() {
         >
           <motion.div variants={menuItemVariants}>
             <Logo />
+       
           </motion.div>
           <NavigationItems
             handleNavLinkClick={() => setIsOpen(false)}
@@ -68,13 +70,14 @@ export default function Sidebar() {
       {/* Mobile Header */}
       <div className="flex justify-between p-3 items-center  md:hidden border-b">
         <Logo size={"size-20"} />
-        <button
+        <Button
           onClick={() => setIsOpen(true)}
-          className="size-12 cursor-pointer hover:bg-slate-200 rounded-full flex items-center justify-center transition-colors duration-200"
+          variant="ghost"
+          size="roundIcon"
           aria-label="Toggle menu"
         >
           <IoMdMenu size={30} />
-        </button>
+        </Button>
       </div>
       {/* Mobile Sidebar */}
       <AnimatePresence>

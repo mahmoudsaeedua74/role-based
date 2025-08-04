@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Button } from "../components/ui/button";
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -13,14 +14,10 @@ const NotFoundPage = () => {
         Sorry, the page you're looking for doesn't exist or has been moved.
       </p>
 
-      <button
-        type="button"
-        onClick={() => navigate("/login")}
-        className="flex items-center justify-center gap-2 py-2 px-6 rounded-md font-medium transition duration-200 border border-primary bg-primary text-white hover:bg-white hover:text-black"
-      >
+      <Button type="button" onClick={() => navigate("/login")}>
         <AiOutlineArrowLeft />
         Back
-      </button>
+      </Button>
     </div>
   );
 };

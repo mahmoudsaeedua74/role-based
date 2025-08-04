@@ -1,5 +1,6 @@
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/ui/button";
 
 export default function Unauthorized() {
   const navigate = useNavigate();
@@ -11,14 +12,10 @@ export default function Unauthorized() {
       <p className="text-gray-700  font-medium">
         Sorry you do not have Access Here
       </p>
-      <button
-        type="button"
-        onClick={handleBack}
-        className="flex items-center justify-center gap-2 py-2 px-6 rounded-md font-medium transition duration-200 border border-primary bg-primary text-white hover:bg-white hover:text-black"
-      >
+      <Button type="button" onClick={handleBack}>
         <AiOutlineArrowLeft />
         Back
-      </button>
+      </Button>
     </div>
   );
 }
