@@ -10,7 +10,7 @@ export default function Profile() {
       <p className="text-center mt-10 text-gray-500">No user data found.</p>
     );
   }
-
+  console.log(user.permissions.join(" "))
   return (
     <section className="mt-8 px-4 space-y-6">
       <h2 className="text-xl font-bold text-zinc-900 mb-4">Profile</h2>
@@ -32,16 +32,16 @@ export default function Profile() {
             </h3>
             <div className="space-y-2">
               <p>
-                <span className="font-medium text-zinc-600">Name:</span>{" "}
+                <span className="font-medium text-zinc-600">Name:</span>
                 {user.name}
               </p>
               <p>
-                <span className="font-medium text-zinc-600">Role:</span>{" "}
+                <span className="font-medium text-zinc-600">Role:</span>
                 {user.role}
               </p>
               <p>
-                <span className="font-medium text-zinc-600">Permissions:</span>{" "}
-                {user.permissions?.join(", ")}
+                <span className="font-medium text-zinc-600">Permissions:</span>
+                {user.permissions?.map(p => p.replace(/_/g, " ")).join(", ")}
               </p>
               <p>
                 <span className="font-medium text-zinc-600">ID:</span> {user.id}

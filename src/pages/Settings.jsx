@@ -38,7 +38,7 @@ export default function Setting() {
   return (
     <section className="mt-[20px] sm:mt-[32px] sm:space-y-[26px]">
       <div className="px-[20px]  sm:p-[10px] space-y-[10px]">
-        <h3 className="text-xl font-bold text-zinc-900 mb-4"> Setting :</h3>
+        <h3 className="text-xl font-bold text-zinc-900 mb-4">Setting</h3>
       </div>
       <div className="py-[24px] px-[20px] cursor-pointer sm:p-10 flex flex-wrap justify-center gap-4 sm:gap-5 bg-white rounded-xl">
         {settings.map((item) => (

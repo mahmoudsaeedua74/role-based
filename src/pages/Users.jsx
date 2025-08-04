@@ -70,7 +70,7 @@ export default function Users() {
   return (
     <section className="mt-8">
       <div className="  px-4  space-y-6">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4">Reports</h2>
+        <h2 className="text-xl font-bold text-zinc-900 mb-4">All Users</h2>
         <DataTable columns={columns} data={users} />
       </div>
     </section>

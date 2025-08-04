@@ -99,8 +99,7 @@ export default function Team() {
   return (
     <section className="mt-8">
       <div className="px-4 space-y-6">
-        <h2 className="text-xl font-bold text-zinc-900 mb-4">Team</h2>
-r
+        <h2 className="text-xl font-bold text-zinc-900 mb-4">All Team</h2>
         <DataTable columns={columns} data={teamMembers} />
       </div>
     </section>
