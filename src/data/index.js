@@ -46,3 +46,27 @@ export const sidebarItems = [
     permission: "view_profile",
   },
 ];
+// login form data
+export const loginFormData = [
+  {
+    label: "Email address",
+    name: "email",
+    placeholder: "Put your email",
+    type: "email",
+  },
+  {
+    label: "Password",
+    name: "password",
+    placeholder: "Put your password",
+    type: "password",
+  },
+];
+//for permission path
+export const permissionToPath = {
+  view_users: "/users",
+  view_reports: "/reports",
+  view_settings: "/settings",
+  view_team: "/team",
+  view_profile: "/profile",
+  view_tasks: "/tasks",
+};

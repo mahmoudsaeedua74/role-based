@@ -8,27 +8,16 @@ import { login } from "../../api/authApi";
 import FormInlineError from "../../components/form/FormError";
 import Input from "../../components/form/Input";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-// login form data
-const loginFormData = [
-  {
-    label: "Email address",
-    name: "email",
-    placeholder: "Put your email",
-    type: "email",
-  },
-  {
-    label: "Password",
-    name: "password",
-    placeholder: "Put your password",
-    type: "password",
-  },
-];
+import { loginFormData, permissionToPath } from "../../data";
+
 export default function Register() {
   const dispatch = useDispatch();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     formState: { errors, isValid },
@@ -50,6 +39,10 @@ export default function Register() {
       // so that the user stays logged in even after a page refresh
       dispatch(setUser(user));
       localStorage.setItem("user", JSON.stringify(user));
+
+      // base on the role of user will redirect on him pages
+      const firstPermission = user.permissions[0];
+      navigate(permissionToPath[firstPermission] || "/");
     } catch (error) {
       toast.dismiss();
       toast.error(
@@ -66,7 +59,7 @@ export default function Register() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
-        <h1 className="text-2xl font-bold text-center text-[#F77737] mb-6">
+        <h1 className="text-2xl font-bold text-center text-primary mb-6">
           Login to your account
         </h1>
         {error && <FormInlineError error={error} />}
@@ -105,7 +98,7 @@ export default function Register() {
             ${
               isLoading || !isValid
                 ? "opacity-50 cursor-not-allowed bg-gray-300 text-gray-500 border-gray-300"
-                : "bg-[#F77737] text-white hover:bg-white hover:text-black"
+                : "bg-primary text-white hover:bg-white hover:text-black"
             }
             `}
           >
