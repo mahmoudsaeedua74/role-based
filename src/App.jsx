@@ -7,8 +7,10 @@ import Users from "./pages/Users";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import Tasks from "./pages/Tasks";
+import Team from "./pages/Team";
 import Layouts from "./components/layout/Layouts";
 import ProtectedRoute from "./guards/ProtectedRoute";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const router = createBrowserRouter([

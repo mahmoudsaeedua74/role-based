@@ -19,7 +19,7 @@ const NotFoundPage = () => {
         className="flex items-center justify-center gap-2 py-2 px-6 rounded-md font-medium transition duration-200 border border-primary bg-primary text-white hover:bg-white hover:text-black"
       >
         <AiOutlineArrowLeft />
-        Back to Login
+        Back
       </button>
     </div>
   );
