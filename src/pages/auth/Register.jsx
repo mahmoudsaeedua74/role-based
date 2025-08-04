@@ -7,7 +7,6 @@ import { setUser } from "../../store/sliceAuth/authSlice";
 import { login } from "../../api/authApi";
 import FormInlineError from "../../components/form/FormError";
 import Input from "../../components/form/Input";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { loginFormData, permissionToPath } from "../../data";
