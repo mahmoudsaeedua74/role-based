@@ -17,6 +17,10 @@ function App() {
   const router = createBrowserRouter([
     // for login users
     {
+      path: "/",
+      element: <Navigate to="/login" />,
+    },
+    {
       path: "/login",
       element: <Register />,
     },
