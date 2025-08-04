@@ -21,7 +21,6 @@ function App() {
       element: <Register />,
     },
     {
-      path: "",
       element: (
         <ProtectedRoute>
           <Layouts />
