@@ -2,16 +2,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Register from "./pages/auth/Register";
 import { Toaster } from "react-hot-toast";
-import Profile from "./pages/Profile";
-import Users from "./pages/Users";
-import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
-import Tasks from "./pages/Tasks";
-import Team from "./pages/Team";
 import Layouts from "./components/layout/Layouts";
 import ProtectedRoute from "./guards/ProtectedRoute";
 import NotFoundPage from "./pages/NotFoundPage";
-
+import { lazy, Suspense } from "react";
+import Loader from "./components/ui/Loader";
+const Profile = lazy(() => import("./pages/Profile"));
+const Users = lazy(() => import("./pages/Users"));
+const Reports = lazy(() => import("./pages/Reports"));
+const Settings = lazy(() => import("./pages/Settings"));
+const Tasks = lazy(() => import("./pages/Tasks"));
+const Team = lazy(() => import("./pages/Team"));
 function App() {
   const router = createBrowserRouter([
     // for login users
@@ -30,27 +31,51 @@ function App() {
         // Dashboard sub-routes for authenticated users
         {
           path: "users",
-          element: <Users />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Users />
+            </Suspense>
+          ),
         },
         {
           path: "reports",
-          element: <Reports />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Reports />
+            </Suspense>
+          ),
         },
         {
           path: "settings",
-          element: <Settings />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Settings />
+            </Suspense>
+          ),
         },
         {
           path: "team",
-          element: <Team />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Team />
+            </Suspense>
+          ),
         },
         {
           path: "profile",
-          element: <Profile />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Profile />
+            </Suspense>
+          ),
         },
         {
           path: "tasks",
-          element: <Tasks />,
+          element: (
+            <Suspense fallback={<Loader />}>
+              <Tasks />
+            </Suspense>
+          ),
         },
       ],
     },
