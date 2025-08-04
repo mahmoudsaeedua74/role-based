@@ -16,7 +16,6 @@ export default function Profile() {
       <h2 className="text-xl font-bold text-zinc-900 mb-4">Profile</h2>
 
       <div className="flex flex-col md:flex-row gap-6">
-        {/* صورة المستخدم */}
         <div className="w-full md:w-1/3">
           <div className="bg-white rounded-2xl shadow p-6 flex justify-center items-center h-full">
             <img
@@ -26,8 +25,6 @@ export default function Profile() {
             />
           </div>
         </div>
-
-        {/* معلومات المستخدم */}
         <div className="w-full md:w-2/3">
           <div className="bg-white rounded-2xl shadow p-6 space-y-4">
             <h3 className="text-lg font-semibold text-zinc-800">
