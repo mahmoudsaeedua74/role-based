@@ -2,7 +2,7 @@
 
 A React.js application implementing role-based access control with authentication, dynamic routing, and permission-based UI rendering.
 
-## 🚀 Features
+##  Features
 
 - **Authentication System**: Mock login with hardcoded credentials
 - **Role-Based Access Control**: Different dashboard sections based on user roles
@@ -14,7 +14,7 @@ A React.js application implementing role-based access control with authenticatio
 - **Loading States**: User feedback during API calls
 - **Error Handling**: Comprehensive error messages and unauthorized access handling
 
-## 👥 User Roles & Permissions
+##  User Roles & Permissions
 
 ### Admin
 - **Sections**: Users, Reports, Settings
@@ -31,7 +31,7 @@ A React.js application implementing role-based access control with authenticatio
 - **Permissions**: `view_profile`, `view_tasks`
 - **Credentials**: `employee@example.com` / `employee123`
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Frontend**: React.js (Functional Components)
 - **State Management**: Redux Toolkit
@@ -43,7 +43,7 @@ A React.js application implementing role-based access control with authenticatio
 - **Icons**: React Icons
 - **Notifications**: React Hot Toast
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -62,6 +62,8 @@ src/
 │   └── ui/
 │       ├── button.jsx       # Reusable button component
 │       └── Loader.jsx       # Loading spinner
+│       └── Logo.jsx         # Logo of sidebar
+│       └── data-table.jsx   # Data Table
 ├── guards/
 │   └── ProtectedRoute.jsx   # Route protection logic
 ├── pages/
@@ -87,12 +89,12 @@ src/
 └── index.js               # React app entry point
 ```
 
-## 🔧 Installation & Setup
+##  Installation & Setup
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd role-based-dashboard
+   git clonehttps://github.com/mahmoudsaeedua74/role-based.git
+   cd role-based
    ```
 
 2. **Install dependencies**
@@ -102,13 +104,13 @@ src/
 
 3. **Start the development server**
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. **Open your browser**
-   Navigate to `http://localhost:3000`
+   Navigate to `http://localhost:5173/`
 
-## 🔐 Authentication Flow
+##  Authentication Flow
 
 1. **Login Process**:
    - User enters credentials on login form
@@ -127,7 +129,7 @@ src/
    - Permission-based access control
    - Unauthorized users redirected to appropriate page
 
-## 🎯 Key Implementation Details
+##  Key Implementation Details
 
 ### Mock API Implementation
 - **Axios Interceptors**: Custom request interceptor simulates `/login` endpoint
@@ -149,16 +151,9 @@ src/
 - **Yup Validation**: Schema-based validation with real-time feedback
 - **User Experience**: Loading states and error messages
 
-## 🌟 Bonus Features Implemented
 
-✅ **React Router Integration**: Complete routing system with nested routes  
-✅ **Logout Functionality**: Logout button clears Redux state and localStorage  
-✅ **PrivateRoute Wrapper**: `ProtectedRoute` component checks user role before allowing access  
-✅ **Dynamic Navigation**: Auto-redirect based on user's first permission  
-✅ **Lazy Loading**: Code splitting for better performance  
-✅ **Error Boundaries**: Comprehensive error handling  
 
-## 🧪 Testing the Application
+##  Testing the Application
 
 ### Test Accounts
 Use these credentials to test different user roles:
@@ -184,39 +179,13 @@ Password: employee123
 4. **Logout Flow**: Test logout functionality and state clearing
 5. **Form Validation**: Test form with invalid inputs
 
-## 📱 Responsive Design
+##  Responsive Design
 
 - Mobile-first approach using Tailwind CSS
 - Responsive sidebar navigation
 - Optimized form layouts for all screen sizes
 - Touch-friendly interface elements
 
-## ⏱ Development Time
-
-**Estimated**: 2-3 hours  
-**Actual Implementation**: Comprehensive solution with all requirements and bonus features completed
-
-## 🔮 Future Enhancements
-
-- Real API integration
-- User registration functionality  
-- Advanced permission management
-- Dark mode support
-- Unit and integration tests
-- Docker containerization
-- CI/CD pipeline setup
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ---
 
