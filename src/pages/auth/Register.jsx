@@ -86,7 +86,7 @@ export default function Register() {
             </div>
           ))}
           <Link
-            to="/forgot-password"
+            to="/forgetPassword"
             className="text-sm text-gray-700 text-end hover:underline"
           >
             Forgot your password?

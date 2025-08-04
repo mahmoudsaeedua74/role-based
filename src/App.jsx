@@ -11,6 +11,7 @@ import ProtectedRoute from "./guards/ProtectedRoute";
 import NotFoundPage from "./pages/NotFoundPage";
 import { lazy, Suspense } from "react";
 import Loader from "./components/ui/Loader";
+import ForgetPassword from "./pages/ForgetPassword";
 const Profile = lazy(() => import("./pages/Profile"));
 const Users = lazy(() => import("./pages/Users"));
 const Reports = lazy(() => import("./pages/Reports"));
@@ -27,6 +28,10 @@ function App() {
     {
       path: "/login",
       element: <Register />,
+    },
+    {
+      path: "/forgetPassword",
+      element: <ForgetPassword />,
     },
     {
       element: (
